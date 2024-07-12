@@ -2,7 +2,8 @@ import React from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import products from "../products";
 import { Row, Col, Image, ListGroup, Button, Card } from "react-bootstrap";
-import img from "../../public/images/camera.jpg";
+import RatingsProducts from "../component/RatingsProducts";
+
 const ProductScreen = () => {
   const { id } = useParams();
   const product = products.find((p) => p._id === id);
@@ -35,19 +36,19 @@ const ProductScreen = () => {
             <ListGroup.Item>
               <h4>{product.name}</h4>
             </ListGroup.Item>
-            {/* <ListGroup.Item>
+
+            <ListGroup.Item>
               <RatingsProducts
                 rating={product.rating}
                 text={`${product.numReviews} reviews`}
                 color={"#f8e825"}
               />
             </ListGroup.Item>
+
             <ListGroup.Item>
-              <h3>${product.price}</h3>
+              <h4>price: ${product.price}</h4>
             </ListGroup.Item>
-            <ListGroup.Item>
-              <p>{product.description}</p>
-            </ListGroup.Item> */}
+            <ListGroup.Item>{product.description}</ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>
