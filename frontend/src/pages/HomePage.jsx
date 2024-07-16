@@ -10,7 +10,7 @@ const HomePage = () => {
       <h1> LATEST PRODUCTS</h1>
       <Row className="justify-content-center">
         {products.map((product) => (
-          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+          <Col key={product._id} sm={12} md={6} lg={5} xl={3}>
             <SinglePorduct product={product} />
           </Col>
         ))}
