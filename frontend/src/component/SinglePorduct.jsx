@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const SinglePorduct = ({ product }) => {
   return (
     <>
-      <Card border="secondary" className="my-3 p-3 rounded">
+      <Card border="secondary" className="my-5 p-3 rounded" style={{height:"90%"}}>
         <Link to={`/product/${product._id}`}>
           <div style={{ overflow: "hidden" }}>
             <Card.Img className="img-pro" variant="top" src={product.image} />
