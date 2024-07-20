@@ -1,5 +1,5 @@
 django
 djangorestframework
 djoser
-corsheaders
 django-cors-headers
+pillow

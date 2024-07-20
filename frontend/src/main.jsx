@@ -5,9 +5,11 @@ import "./bootstrap.min.css";
 // index.js or App.js
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./main.css";
+import {Provider } from "react-redux";
+import store from "./store.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );

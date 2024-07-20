@@ -27,5 +27,5 @@ def singleProducts (request, pk):
 class singleproduct(APIView) :
      def get(self,request,pk):
         sProducts=Product.objects.all(_id=pk)
-        serializer=ProductSerializer(sProducts, many=True)
+        serializer=ProductSerializer(sProducts, many=False)
         return Response ( serializer.data)
