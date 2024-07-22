@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import HomePage from "./pages/HomePage";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import ProductScreen from "./pages/ProductScreen";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/home" element={<HomePage />} />
               <Route path="/product/:id" element={<ProductScreen />} />
+              <Route path="/cart/:id?" element={<CartPage />} />
             </Routes>
-            </div>
+          </div>
         </main>
 
         <Footer />

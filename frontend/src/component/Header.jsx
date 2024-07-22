@@ -32,8 +32,7 @@ const Header = () => {
                   Separated link
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="/cart" className="px-5">
-                {" "}
+              <Nav.Link as={Link} to="/cart" className="px-5">
                 <i className="fas fa-shopping-cart"></i> Cart
               </Nav.Link>
               <Nav.Link href="/login">
