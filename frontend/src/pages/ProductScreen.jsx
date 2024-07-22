@@ -1,12 +1,14 @@
-import axios from 'axios'
+import axios from "axios";
 import { useParams, useNavigate, Link } from "react-router-dom";
 // import products from "../products";
 import { Row, Col, Image, ListGroup, Button, Card } from "react-bootstrap";
 import RatingsProducts from "../component/RatingsProducts";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {singleProductsAction} from "../action/singleProductAction"
+import { singleProductsAction } from "../action/singleProductAction";
 const ProductScreen = () => {
+  const navigate = useNavigate();
+  const [qty, setQty] = useState(1);
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -14,8 +16,11 @@ const ProductScreen = () => {
   const { error, loading, product } = singleProduct;
   useEffect(() => {
     dispatch(singleProductsAction(id));
+  }, []);
 
-  },[])
+  const handleClicktoCart = () => {
+    navigate(`/cart/${id}?qty=${qty}`);
+  };
   // const product = products.find((p) => p._id === id);
   return (
     <>
@@ -73,6 +78,7 @@ const ProductScreen = () => {
                   </Col>
                 </Row>
               </ListGroup.Item>
+
               <ListGroup.Item>
                 <Row>
                   <Col md={4}>Status:</Col>
@@ -84,11 +90,32 @@ const ProductScreen = () => {
                 </Row>
               </ListGroup.Item>
 
+              {product.countInStock > 0 && (
+                <ListGroup.Item>
+                  <Row>
+                    <Col md={6}>Quantity: </Col>
+                    <Col md={6}>
+                      <select
+                        value={qty}
+                        onChange={(e) => setQty(e.target.value)}
+                      >
+                        {[...Array(product.countInStock).keys()].map((x) => (
+                          <option key={x + 1} value={x + 1}>
+                            {x + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </Col>
+                  </Row>
+                </ListGroup.Item>
+              )}
+
               <Button
                 className="list-group-item"
                 disabled={product.countInStock === 0}
                 style={{ backgroundColor: "black", color: "white" }}
                 type="button"
+                onClick={handleClicktoCart}
               >
                 Add To Cart
               </Button>

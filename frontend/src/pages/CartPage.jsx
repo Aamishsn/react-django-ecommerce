@@ -1,13 +1,19 @@
-import React from 'react'
-
+import React from "react";
+import { useSearchParams, useParams } from "react-router-dom";
 const CartPage = () => {
+  const [searchParams] = useSearchParams();
+    const {id} = useParams();
+    console.log(id);
+  const qty = searchParams.get("qty");
   return (
     <div>
+      CartPage
+        the quantity is :      {qty}
+        <br/>
         
-        CartPage
-
+      the id of the product is :{id}
     </div>
-  )
-}
+  );
+};
 
-export default CartPage
+export default CartPage;
