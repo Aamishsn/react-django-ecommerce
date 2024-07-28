@@ -18,9 +18,15 @@ const CartPage = () => {
   console.log(id);
   const qty = searchParams.get("qty");
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const cartItems = cart.cartItems;
+
+  console.log(cartItems);
 
   useEffect(() => {
-    dispatch(addToCart(id, qty));
+    if (id) {
+      dispatch(addToCart(id, qty));
+    }
   }, [dispatch, id, qty]);
 
   return (
