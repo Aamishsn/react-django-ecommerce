@@ -1,6 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
-import { useSearchParams, useParams, Link } from "react-router-dom";
+import {
+  useSearchParams,
+  useParams,
+  Link,
+  useNavigate,
+} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../action/cartAction";
 import {
@@ -13,6 +18,7 @@ import {
   Card,
 } from "react-bootstrap";
 const CartPage = () => {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { id } = useParams();
   console.log(id);
@@ -31,6 +37,10 @@ const CartPage = () => {
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
+  };
+
+  const checkOutHandler = () => {
+    navigate("/shipping");
   };
 
   return (
@@ -143,7 +153,7 @@ const CartPage = () => {
                 border: "none",
               }}
               type="button"
-              // onClick={checkOutHandler}
+              onClick={checkOutHandler}
             >
               Poceed to Check Out
             </Button>
