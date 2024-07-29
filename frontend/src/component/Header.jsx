@@ -18,7 +18,7 @@ const Header = () => {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="col-md-4 ms-auto">
+            <Nav className="col-md-3">
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
@@ -27,15 +27,12 @@ const Header = () => {
                 <NavDropdown.Item href="#action/3.3">
                   Something
                 </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link as={Link} to="/cart" className="px-5">
+
+              <Nav.Link as={Link} to="/cart" className="px-3">
                 <i className="fas fa-shopping-cart"></i> Cart
               </Nav.Link>
-              <Nav.Link href="/login">
+              <Nav.Link as={Link} to="/login" className="px-3">
                 {" "}
                 <i className="fas fa-user"></i> Login
               </Nav.Link>
